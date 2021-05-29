@@ -42,3 +42,6 @@ body {
 .github-logo {
   fill: var(--color-github-logo);
 }
+ul {
+  list-style-type: none;
+}

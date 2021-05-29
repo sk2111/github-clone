@@ -101,6 +101,7 @@
 .repo-item {
   border-bottom: 1px solid var(--color-border-primary);
   padding: 20px 0;
+  position:relative;
 }
 .repo-name {
   cursor: pointer;
@@ -122,10 +123,17 @@
   padding-right: 30px;
   font-size: 1.3rem;
 }
-.far {
+.icon-star {
   font-size: 1.4rem;
   position: relative;
   bottom: 1px;
+}
+.icon-book {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 25px;
+  left:-16px;
+  opacity: 0.85;
 }
 .repo-date {
   padding-left: 20px;

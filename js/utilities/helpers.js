@@ -52,7 +52,7 @@ export const updateTitleCount = (totalCount, type, totalCountNode) => {
     totalCountNode.innerText = 'No Results';
 };
 
-export const getUserList = (userList) => {
+export const getUserList = (userList = []) => {
     const nodeList = userList.map(({ avatar_url, login, url }) => {
         const listNode = createDOMNode('li', null, [{ name: 'class', value: 'user-item' }]);
         const imgNode = createDOMNode('img', null, [{ name: 'src', value: avatar_url }, { name: 'class', value: 'user-avatar' }]);
@@ -63,18 +63,19 @@ export const getUserList = (userList) => {
     return nodeList;
 };
 
-export const getRepoList = (repoList) => {
+export const getRepoList = (repoList = []) => {
     const nodeList = repoList.map(({ full_name, description, stargazers_count, updated_at }) => {
         const [updatedDate] = updated_at.split('T');
         const listNode = createDOMNode('li', null, [{ name: 'class', value: 'repo-item' }]);
+        const bookIcon = createDOMNode('i', null, [{ name: 'class', value: 'icon-book fas fa-book' }]);
         const nameNode = createDOMNode('h6', full_name, [{ name: 'class', value: 'repo-name' }]);
         const detailNode = createDOMNode('p', description, [{ name: 'class', value: 'repo-detail' }]);
         const containerNode = createDOMNode('div', null, [{ name: 'class', value: 'repo-con' }]);
-        const icon = createDOMNode('i', null, [{ name: 'class', value: 'far fa-star' }]);
+        const starIcon = createDOMNode('i', null, [{ name: 'class', value: 'icon-star far fa-star' }]);
         const starsNode = createDOMNode('span', `${stargazers_count}`, [{ name: 'class', value: 'repo-stars' }]);
         const updatedAtNode = createDOMNode('span', `updated on ${updatedDate}`, [{ name: 'class', value: 'repo-date' }]);
-        containerNode.append(icon, starsNode, updatedAtNode);
-        listNode.append(nameNode, detailNode, containerNode);
+        containerNode.append(starIcon, starsNode, updatedAtNode);
+        listNode.append(bookIcon, nameNode, detailNode, containerNode);
         return listNode;
     });
     return nodeList;
