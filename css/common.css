@@ -4,12 +4,15 @@
   padding: 0;
 }
 :root {
+  --color-github-logo: #ffffff;
   --color-header-text: #ffffff;
   --color-header-background: #24292e;
   --color-search-border: #5e5f5f;
   --color-border-primary: #e1e4e8;
   --color-nav-hover: #f6f8fa;
+  --color-nav-not-selected: #ffffff;
   --color-nav-selected: #ffa500;
+  --color-nav-selected-background: #ffffff;
 }
 html {
   font-size: 10px;
@@ -37,5 +40,5 @@ body {
   margin-right: 16px;
 }
 .github-logo {
-  fill: white;
+  fill: var(--color-github-logo);
 }

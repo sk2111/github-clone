@@ -39,18 +39,19 @@
       <div class="content-container">
         <div class="search-view">
           <div class="navigation-bar">
-            <div class="nav-item nav-selected">
+            <div class="nav-item nav-selected" onclick="handleViewChange(this)">
               <p class="nav-title">Repositories</p>
-              <p class="nav-number">2 k</p>
+              <p id="repo-count" class="nav-number">2 k</p>
             </div>
-            <div class="nav-item nav-selected">
-              <p class="nav-title">Repositories</p>
-              <p class="nav-number">2 k</p>
+            <div class="nav-item" onclick="handleViewChange(this)">
+              <p class="nav-title">Users</p>
+              <p id="user-count" class="nav-number">2 k</p>
             </div>
           </div>
           <div class="search-results"></div>
         </div>
       </div>
     </div>
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>
