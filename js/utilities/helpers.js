@@ -70,9 +70,10 @@ export const getRepoList = (repoList) => {
         const nameNode = createDOMNode('h6', full_name, [{ name: 'class', value: 'repo-name' }]);
         const detailNode = createDOMNode('p', description, [{ name: 'class', value: 'repo-detail' }]);
         const containerNode = createDOMNode('div', null, [{ name: 'class', value: 'repo-con' }]);
-        const starsNode = createDOMNode('span', `stars - ${stargazers_count}`, [{ name: 'class', value: 'repo-stars' }]);
+        const icon = createDOMNode('i', null, [{ name: 'class', value: 'far fa-star' }]);
+        const starsNode = createDOMNode('span', `${stargazers_count}`, [{ name: 'class', value: 'repo-stars' }]);
         const updatedAtNode = createDOMNode('span', `updated on ${updatedDate}`, [{ name: 'class', value: 'repo-date' }]);
-        containerNode.append(starsNode, updatedAtNode);
+        containerNode.append(icon, starsNode, updatedAtNode);
         listNode.append(nameNode, detailNode, containerNode);
         return listNode;
     });

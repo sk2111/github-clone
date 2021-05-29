@@ -118,8 +118,14 @@
   flex-direction: row;
 }
 .repo-stars {
+  padding-left: 5px;
   padding-right: 30px;
   font-size: 1.3rem;
+}
+.far {
+  font-size: 1.4rem;
+  position: relative;
+  bottom: 1px;
 }
 .repo-date {
   padding-left: 20px;
