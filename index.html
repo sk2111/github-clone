@@ -34,21 +34,35 @@
           class="search-input"
           type="text"
           placeholder="Search users or repositories"
+          oninput="handleSearch(this)"
         />
       </div>
       <div class="content-container">
-        <div class="search-view">
+        <h2 id="info-view" class="info-view">
+          Please search for any users or respositories
+        </h2>
+        <div id="search-view" class="search-view">
           <div class="navigation-bar">
-            <div class="nav-item nav-selected" onclick="handleViewChange(this)">
+            <div
+              class="nav-item nav-selected"
+              data-nav="repositories"
+              onclick="handleViewChange(this)"
+            >
               <p class="nav-title">Repositories</p>
               <p id="repo-count" class="nav-number">2 k</p>
             </div>
-            <div class="nav-item" onclick="handleViewChange(this)">
+            <div
+              class="nav-item"
+              data-nav="users"
+              onclick="handleViewChange(this)"
+            >
               <p class="nav-title">Users</p>
               <p id="user-count" class="nav-number">2 k</p>
             </div>
           </div>
-          <div class="search-results"></div>
+          <div class="search-results">
+            <h4 id="total-search-count" class="search-count">1,833 results</h4>
+          </div>
         </div>
       </div>
     </div>

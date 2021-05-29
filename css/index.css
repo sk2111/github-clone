@@ -22,6 +22,10 @@
   margin-right: auto;
   margin-left: auto;
   max-width: 1000px;
+  visibility: hidden;
+}
+.info-view {
+  text-align: center;
 }
 .navigation-bar {
   border: 1px solid var(--color-border-primary);
@@ -51,6 +55,7 @@
 .nav-selected {
   border-left: 2px solid var(--color-nav-selected) !important;
   background-color: var(--color-nav-selected-background) !important;
+  cursor: default;
 }
 .nav-title {
   font-size: 1.4rem;
@@ -65,4 +70,13 @@
   padding: 5px;
   opacity: 0.75;
   text-align: center;
+}
+.search-results {
+  margin-left: 30px;
+  width: 100%;
+}
+.search-count {
+  border-bottom: 1px solid var(--color-border-primary);
+  font-size: 1.8rem;
+  padding: 10px 0px 20px 0px;
 }
