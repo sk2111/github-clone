@@ -34,12 +34,22 @@ export const fetchJson = async (url) => {
     }
 };
 
-export const updateTitleCount = (totalCount, type, navNode, totalCountNode) => {
+export const updateNavCount = (totalCount, navNode) => {
+    const total = Number(totalCount);
+    if (total) {
+        navNode.innerText = total > 1000 ? `${parseInt(total / 1000)} k` : total;
+        return;
+    }
+    navNode.innerText = '-';
+};
+
+export const updateTitleCount = (totalCount, type, totalCountNode) => {
     const total = Number(totalCount);
     if (total) {
         totalCountNode.innerText = `${total} ${type} results`;
-        navNode.innerText = total > 1000 ? `${parseInt(total / 1000)} k` : total;
+        return;
     }
+    totalCountNode.innerText = 'No Results';
 };
 
 export const getUserList = (userList) => {

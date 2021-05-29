@@ -1,5 +1,6 @@
 import {
-    updateNavigationBar, updateUserView, fetchJson, updateTitleCount, getUserList
+    updateNavigationBar, updateUserView, fetchJson, 
+    updateNavCount, updateTitleCount, getUserList
 } from './utilities/helpers.js';
 
 //DOM nodes
@@ -8,8 +9,8 @@ const infoViewNode = document.getElementById('info-view');
 const totalCountNode = document.getElementById('total-search-count');
 const searchResultsNode = document.getElementById('search-results');
 const navItemsNode = document.querySelectorAll('.nav-item');
-const repoCountNode = document.getElementById('repo-count');
-const userCountNode = document.getElementById('user-count');
+const repoNavCountNode = document.getElementById('repo-count');
+const userNavCountNode = document.getElementById('user-count');
 
 //constants
 const NAV_SELECTED_CLASS = 'nav-selected';
@@ -27,15 +28,17 @@ const GITHUB_USERS = 'https://api.github.com/search/users?per_page=10';
 
 
 const handleContentView = async (currentNavView, searchTerm) => {
-    if (currentNavView === NAV_REPOSITORIES) {
-        const url = `${GITHUB_USERS}&q=${searchTerm}&page=${usersPagination}`;
-        const { total_count: totalCount, items: usersList } = await fetchJson(url);
-        updateTitleCount(totalCount, 'users', userCountNode, totalCountNode);
+    const usersUrl = `${GITHUB_USERS}&q=${searchTerm}&page=${usersPagination}`;
+    const { total_count: totalUsersCount, items: usersList } = await fetchJson(usersUrl);
+    updateNavCount(totalUsersCount, userNavCountNode);
+
+    if (currentNavView === NAV_USERS) {
+        updateTitleCount(totalUsersCount, 'users', totalCountNode);
         const userNodeList = getUserList(usersList);
         searchResultsNode.innerHTML = '';
         searchResultsNode.append(...userNodeList);
     }
-    if (currentNavView === NAV_USERS) {
+    if (currentNavView === NAV_REPOSITORIES) {
         //fetch data 
 
 
