@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --color-header-text: #ffffff;
+  --color-header-background: #24292e;
+  --color-search-border: #5e5f5f;
+}
+html {
+  font-size: 10px;
+  font-family: "Roboto";
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+.page-container {
+  height: 100%;
+  width: 100%;
+}
+.header-bar {
+  align-items: center;
+  background-color: var(--color-header-background);
+  color: var(--color-header-text);
+  display: flex;
+  flex-direction: row;
+  height: 56px;
+  padding: 16px;
+}
+.logo-container {
+  margin-right: 16px;
+}
+.github-logo {
+  fill: white;
+}
