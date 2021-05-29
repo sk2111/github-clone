@@ -7,6 +7,9 @@
   --color-header-text: #ffffff;
   --color-header-background: #24292e;
   --color-search-border: #5e5f5f;
+  --color-border-primary: #e1e4e8;
+  --color-nav-hover: #f6f8fa;
+  --color-nav-selected: #ffa500;
 }
 html {
   font-size: 10px;
