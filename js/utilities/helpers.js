@@ -62,3 +62,19 @@ export const getUserList = (userList) => {
     });
     return nodeList;
 };
+
+export const getRepoList = (repoList) => {
+    const nodeList = repoList.map(({ full_name, description, stargazers_count, updated_at }) => {
+        const [updatedDate] = updated_at.split('T');
+        const listNode = createDOMNode('li', null, [{ name: 'class', value: 'repo-item' }]);
+        const nameNode = createDOMNode('h6', full_name, [{ name: 'class', value: 'repo-name' }]);
+        const detailNode = createDOMNode('p', description, [{ name: 'class', value: 'repo-detail' }]);
+        const containerNode = createDOMNode('div', null, [{ name: 'class', value: 'repo-con' }]);
+        const starsNode = createDOMNode('span', `stars - ${stargazers_count}`, [{ name: 'class', value: 'repo-stars' }]);
+        const updatedAtNode = createDOMNode('span', `updated on ${updatedDate}`, [{ name: 'class', value: 'repo-date' }]);
+        containerNode.append(starsNode, updatedAtNode);
+        listNode.append(nameNode, detailNode, containerNode);
+        return listNode;
+    });
+    return nodeList;
+};
