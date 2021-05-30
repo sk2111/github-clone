@@ -71,7 +71,23 @@
           </div>
           <div class="search-container">
             <h4 id="total-search-count" class="search-count"></h4>
-            <ul id="search-results"></ul>
+            <ul id="search-results" class="search-results"></ul>
+            <div class="pagination-con">
+              <button
+                class="pagi-btn"
+                data-pagi="previous"
+                onclick="handlePagination(this)"
+              >
+                Previous
+              </button>
+              <button
+                class="pagi-btn"
+                data-pagi="next"
+                onclick="handlePagination(this)"
+              >
+                Next
+              </button>
+            </div>
           </div>
         </div>
       </div>

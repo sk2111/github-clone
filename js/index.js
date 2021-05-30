@@ -18,6 +18,8 @@ const userNavCountNode = document.getElementById('user-count');
 //constants
 const NAV_SELECTED_CLASS = 'nav-selected';
 const NAV_REPOSITORIES = 'repositories';
+const PAGI_NEXT = 'next';
+const PAGI_PREVIOUS = 'previous';
 const NAV_USERS = 'users';
 let currentNavView = NAV_REPOSITORIES;
 
@@ -64,6 +66,8 @@ window.handleViewChange = (e) => {
     const navView = e.getAttribute('data-nav');
     if (navView === currentNavView) return;
     currentNavView = navView;
+    usersPagination = 1;
+    repoPagination = 1;
     updateNavigationBar(e, navItemsNode, NAV_SELECTED_CLASS);
     handleContentView(currentNavView, searchTerm);
 };
@@ -79,4 +83,20 @@ window.handleSearch = (e) => {
         }
         updateUserView(searchTerm, searchViewNode, infoViewNode);
     }, 750);
+};
+
+window.handlePagination = (e) => {
+    const pagination = e.getAttribute('data-pagi');
+    if (pagination === PAGI_NEXT) {
+        currentNavView === NAV_USERS ? ++usersPagination : ++repoPagination;
+    }
+    if (pagination === PAGI_PREVIOUS) {
+        currentNavView === NAV_USERS ? --usersPagination : --repoPagination;
+
+    }
+
+    if (usersPagination < 1) usersPagination = 1;
+    if (repoPagination < 1) usersPagination = 1;
+
+    handleContentView(currentNavView, searchTerm);
 };

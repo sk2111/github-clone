@@ -14,6 +14,8 @@
   --color-nav-selected: #ffa500;
   --color-nav-selected-background: #ffffff;
   --color-text-primary: #000000;
+  --color-btn-primary: #0366d6;
+  --color-btn-primary-background: #ffffff;
 }
 html {
   font-size: 10px;
