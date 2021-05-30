@@ -3,12 +3,12 @@ import {
 } from './utilities/helpers.js';
 
 //DOM nodes
-const userDetailsNode = document.getElementById("user-details");
-const repoDetailsNode = document.getElementById("repo-details");
+const userDetailsNode = document.getElementById('user-details');
+const repoDetailsNode = document.getElementById('repo-details');
 
 //location 
 const searchQuery = window.location.search;
-const userName = getQueryParams(searchQuery, "username=");
+const userName = getQueryParams(searchQuery, 'username=');
 
 //API
 const GITHUB_REPOS = `https://api.github.com/users/${userName}/repos`;
