@@ -13,7 +13,15 @@ export const createDOMNode = (tagName, content, attribute = []) => {
 
 export const fetchJson = async (url) => {
     try {
-        const response = await fetch(url);
+        let requestInit = {};
+        if (window.API_KEY) {
+            requestInit = {
+                headers: {
+                    'authorization': `token ${window.API_KEY}`
+                }
+            }
+        }
+        const response = await fetch(url, requestInit);
         const data = await response.json();
         return data;
     }
