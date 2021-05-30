@@ -13,11 +13,7 @@ export const createDOMNode = (tagName, content, attribute = []) => {
 
 export const fetchJson = async (url) => {
     try {
-        const response = await fetch(url, {
-            headers: {
-                'authorization': 'token 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'
-            }
-        });
+        const response = await fetch(url);
         const data = await response.json();
         return data;
     }
