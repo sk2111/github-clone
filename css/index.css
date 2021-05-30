@@ -103,7 +103,6 @@
   width: 50px;
 }
 .user-name {
-  color: var(--color-text-primary);
   cursor: pointer;
   font-size: 1.5rem;
   font-weight: 500;
@@ -115,7 +114,6 @@
   position: relative;
 }
 .repo-name {
-  color: var(--color-text-primary);
   cursor: pointer;
   font-size: 1.8rem;
   font-weight: 500;
