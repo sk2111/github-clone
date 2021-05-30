@@ -5,14 +5,29 @@
   margin-left: auto;
   max-width: 1000px;
 }
+.user-details {
+  padding-top: 40px;
+  padding-right: 40px;
+}
+.user-avatar {
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+}
+.user-name {
+  font-size: 2.5rem;
+  text-align: center;
+}
 .repo-details {
   padding-top: 30px;
+  padding-left: 40px;
   width: 100%;
 }
 .repo-count {
   border-bottom: 1px solid var(--color-border-primary);
   font-size: 1.8rem;
   padding: 10px 0px 20px 0px;
+  text-align: center;
 }
 .repo-item {
   border-bottom: 1px solid var(--color-border-primary);

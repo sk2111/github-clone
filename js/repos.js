@@ -8,8 +8,8 @@ const repoDetailsNode = document.getElementById("repo-details");
 
 //location 
 const searchQuery = window.location.search;
-//const userName = getQueryParams(searchQuery, "username=");
-const userName = 'sk2111';
+const userName = getQueryParams(searchQuery, "username=");
+
 //API
 const GITHUB_REPOS = `https://api.github.com/users/${userName}/repos`;
 
@@ -17,10 +17,11 @@ const GITHUB_REPOS = `https://api.github.com/users/${userName}/repos`;
     try {
         if (!userName) return window.location = '/index.html';;
         const repoList = await fetchJson(GITHUB_REPOS);
-
-        console.log(repoList);
+        const [{ owner: { avatar_url: avatarUrl, login: loginName } }] = repoList;
+        const imageNode = createDOMNode('img', null, [{ name: 'class', value: 'user-avatar' }, { name: 'src', value: avatarUrl }]);
+        const nameNode = createDOMNode('h5', loginName, [{ name: 'class', value: 'user-name' }]);
         //show user details
-
+        userDetailsNode.append(imageNode, nameNode);
         //show repo details
         const repoTotalCount = `${repoList.length} repositories found`
         const repoCountNode = createDOMNode('h4', repoTotalCount, [{ name: 'class', value: 'repo-count' }]);
