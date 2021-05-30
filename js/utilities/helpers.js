@@ -13,7 +13,11 @@ export const createDOMNode = (tagName, content, attribute = []) => {
 
 export const fetchJson = async (url) => {
     try {
-        const response = await fetch(url);
+        const response = await fetch(url, {
+            headers: {
+                'authorization': 'token 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'
+            }
+        });
         const data = await response.json();
         return data;
     }
@@ -42,7 +46,7 @@ export const getRepoList = (repoList = []) => {
         listNode.append(bookIcon, nameNode, detailNode, containerNode);
         return listNode;
     });
-    
+
 };
 
 export const getQueryParams = (searchQuery, keyword) => {
