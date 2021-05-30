@@ -1,6 +1,4 @@
-import {
-    fetchJson, getRepoList
-} from './utilities/helpers.js';
+import { fetchJson, getRepoList } from './utilities/helpers.js';
 
 import {
     updateNavigationBar, updateUserView,
@@ -45,13 +43,13 @@ const handleContentView = async (currentNavView, searchTerm) => {
         updateNavCount(totalReposCount, repoNavCountNode);
 
         if (currentNavView === NAV_USERS) {
-            updateTitleCount(totalUsersCount, 'users', totalCountNode);
+            updateTitleCount(totalUsersCount, NAV_USERS, totalCountNode);
             const userNodeList = getUserList(usersList);
             searchResultsNode.append(...userNodeList);
         }
 
         if (currentNavView === NAV_REPOSITORIES) {
-            updateTitleCount(totalReposCount, 'repositories', totalCountNode);
+            updateTitleCount(totalReposCount, NAV_REPOSITORIES, totalCountNode);
             const repoNodeList = getRepoList(reposList);
             searchResultsNode.append(...repoNodeList);
         }
@@ -92,9 +90,7 @@ window.handlePagination = (e) => {
     }
     if (pagination === PAGI_PREVIOUS) {
         currentNavView === NAV_USERS ? --usersPagination : --repoPagination;
-
     }
-
     if (usersPagination < 1) return usersPagination = 1;
     if (repoPagination < 1) return repoPagination = 1;
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });

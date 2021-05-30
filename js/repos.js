@@ -1,15 +1,11 @@
-import {
-    fetchJson, getQueryParams, getRepoList, createDOMNode
-} from './utilities/helpers.js';
+import { fetchJson, getQueryParams, getRepoList, createDOMNode } from './utilities/helpers.js';
 
 //DOM nodes
 const userDetailsNode = document.getElementById('user-details');
 const repoDetailsNode = document.getElementById('repo-details');
-
 //location 
 const searchQuery = window.location.search;
 const userName = getQueryParams(searchQuery, 'username=');
-
 //API
 const GITHUB_REPOS = `https://api.github.com/users/${userName}/repos`;
 
@@ -25,8 +21,7 @@ const GITHUB_REPOS = `https://api.github.com/users/${userName}/repos`;
         //show repo details
         const repoTotalCount = `${repoList.length} user repositories found`
         const repoCountNode = createDOMNode('h4', repoTotalCount, [{ name: 'class', value: 'repo-count' }]);
-        const repoListNodes = getRepoList(repoList);
-        repoDetailsNode.append(repoCountNode, ...repoListNodes);
+        repoDetailsNode.append(repoCountNode, ...getRepoList(repoList));
     }
     catch (e) {
         console.log(e);

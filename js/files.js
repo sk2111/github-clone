@@ -10,7 +10,6 @@ const fileDetailsNode = document.getElementById('file-details');
 const searchQuery = window.location.search;
 const repoDetails = getQueryParams(searchQuery, 'repo=');
 
-
 //API
 const GITHUB_COMMIT_SHA = `https://api.github.com/repos/${repoDetails}/commits`;
 const GITHUB_FILES = `https://api.github.com/repos/${repoDetails}/git/trees/`;
@@ -35,9 +34,7 @@ const getFileNodes = (tree) => {
         repoTitle.innerText = repoDetails;
         const [{ sha }] = await fetchJson(GITHUB_COMMIT_SHA);
         const fileList = await fetchJson(GITHUB_FILES + sha);
-        const fileNodes = getFileNodes(fileList.tree);
-        fileDetailsNode.append(...fileNodes);
-        console.log(fileList);
+        fileDetailsNode.append(...getFileNodes(fileList.tree));
     }
     catch (e) {
         console.log(e);

@@ -31,9 +31,14 @@ export const updateTitleCount = (totalCount, type, totalCountNode) => {
 };
 
 export const getUserList = (userList = []) => {
-    const nodeList = userList.map(({ avatar_url, login, url }) => {
-        const listNode = createDOMNode('li', null, [{ name: 'class', value: 'user-item' }]);
-        const imgNode = createDOMNode('img', null, [{ name: 'src', value: avatar_url }, { name: 'class', value: 'user-avatar' }]);
+    return userList.map(({ avatar_url, login }) => {
+        const listNode = createDOMNode('li', null, [
+            { name: 'class', value: 'user-item' }
+        ]);
+        const imgNode = createDOMNode('img', null, [
+            { name: 'src', value: avatar_url },
+            { name: 'class', value: 'user-avatar' }
+        ]);
         const nameNode = createDOMNode('a', login, [
             { name: 'class', value: 'user-name' },
             { name: 'href', value: `/repos.html?username=${login}` },
@@ -42,5 +47,4 @@ export const getUserList = (userList = []) => {
         listNode.append(imgNode, nameNode);
         return listNode;
     });
-    return nodeList;
 };

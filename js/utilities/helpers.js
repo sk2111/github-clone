@@ -24,7 +24,7 @@ export const fetchJson = async (url) => {
 };
 
 export const getRepoList = (repoList = []) => {
-    const nodeList = repoList.map(({ full_name, description, stargazers_count, updated_at }) => {
+    return repoList.map(({ full_name, description, stargazers_count, updated_at }) => {
         const [updatedDate] = updated_at.split('T');
         const listNode = createDOMNode('li', null, [{ name: 'class', value: 'repo-item' }]);
         const bookIcon = createDOMNode('i', null, [{ name: 'class', value: 'icon-book fas fa-book' }]);
@@ -42,7 +42,7 @@ export const getRepoList = (repoList = []) => {
         listNode.append(bookIcon, nameNode, detailNode, containerNode);
         return listNode;
     });
-    return nodeList;
+    
 };
 
 export const getQueryParams = (searchQuery, keyword) => {
