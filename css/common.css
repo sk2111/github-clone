@@ -13,6 +13,7 @@
   --color-nav-not-selected: #ffffff;
   --color-nav-selected: #ffa500;
   --color-nav-selected-background: #ffffff;
+  --color-text-primary: #000000;
 }
 html {
   font-size: 10px;

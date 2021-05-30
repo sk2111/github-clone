@@ -56,7 +56,11 @@ export const getUserList = (userList = []) => {
     const nodeList = userList.map(({ avatar_url, login, url }) => {
         const listNode = createDOMNode('li', null, [{ name: 'class', value: 'user-item' }]);
         const imgNode = createDOMNode('img', null, [{ name: 'src', value: avatar_url }, { name: 'class', value: 'user-avatar' }]);
-        const nameNode = createDOMNode('p', login, [{ name: 'class', value: 'user-name' }]);
+        const nameNode = createDOMNode('a', login, [
+            { name: 'class', value: 'user-name' },
+            { name: 'href', value: `/repos.html?username=${login}` },
+            { name: 'target', value: '_blank' }
+        ]);
         listNode.append(imgNode, nameNode);
         return listNode;
     });
