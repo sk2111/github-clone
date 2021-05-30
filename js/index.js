@@ -1,8 +1,11 @@
 import {
-    updateNavigationBar, updateUserView, fetchJson,
-    updateNavCount, updateTitleCount, getUserList, getRepoList
+    fetchJson, getRepoList
 } from './utilities/helpers.js';
 
+import {
+    updateNavigationBar, updateUserView,
+    updateNavCount, updateTitleCount, getUserList
+} from './utilities/index-helpers.js';
 //DOM nodes
 const searchViewNode = document.getElementById('search-view');
 const infoViewNode = document.getElementById('info-view');

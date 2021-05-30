@@ -1,0 +1,8 @@
+.search-view {
+  display: flex;
+  flex-direction: row;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1000px;
+  visibility: hidden;
+}
