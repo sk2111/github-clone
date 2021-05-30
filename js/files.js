@@ -20,8 +20,11 @@ const getFileNodes = (tree) => {
     return tree.map(({ path }) => {
         const tableRow = createDOMNode('tr', null, []);
         const tableData = createDOMNode('td', path, []);
-        const fileIcon = createDOMNode('i', null, [{ name: 'class', value: 'fal fa-file-alt file' }]);
-        tableRow.append(fileIcon, tableData);
+        const dataIcon = createDOMNode('td', '', [{ name: 'class', value: 'td-cen' }]);
+        const fileIcon = createDOMNode('i', null, [{ name: 'class', value: 'fas fa-file-alt icon' }]);
+        const folderIcon = createDOMNode('i', null, [{ name: 'class', value: 'fas fa-folder icon' }]);
+        dataIcon.append(path.includes('.') ? fileIcon : folderIcon);
+        tableRow.append(dataIcon, tableData);
         return tableRow;
     });
 };

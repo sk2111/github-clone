@@ -16,4 +16,15 @@ th {
   text-align: left;
   padding: 8px;
 }
-
+.th-icon {
+  width: 70px;
+}
+.td-cen {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.icon {
+  font-size: 2rem;
+  opacity: 0.75;
+}
