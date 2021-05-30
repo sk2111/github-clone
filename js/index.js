@@ -95,8 +95,8 @@ window.handlePagination = (e) => {
 
     }
 
-    if (usersPagination < 1) usersPagination = 1;
-    if (repoPagination < 1) usersPagination = 1;
+    if (usersPagination < 1) return usersPagination = 1;
+    if (repoPagination < 1) return repoPagination = 1;
 
     handleContentView(currentNavView, searchTerm);
 };
