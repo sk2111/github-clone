@@ -33,25 +33,30 @@ const GITHUB_REPOS = 'https://api.github.com/search/repositories?per_page=10';
 
 
 const handleContentView = async (currentNavView, searchTerm) => {
-    const usersUrl = `${GITHUB_USERS}&q=${searchTerm}&page=${usersPagination}`;
-    const repoUrl = `${GITHUB_REPOS}&q=${searchTerm}&page=${repoPagination}`;
-    const { total_count: totalUsersCount, items: usersList } = await fetchJson(usersUrl);
-    const { total_count: totalReposCount, items: reposList } = await fetchJson(repoUrl);
-    updateNavCount(totalUsersCount, userNavCountNode);
-    updateNavCount(totalReposCount, repoNavCountNode);
+    try {
+        const usersUrl = `${GITHUB_USERS}&q=${searchTerm}&page=${usersPagination}`;
+        const repoUrl = `${GITHUB_REPOS}&q=${searchTerm}&page=${repoPagination}`;
+        const { total_count: totalUsersCount, items: usersList } = await fetchJson(usersUrl);
+        const { total_count: totalReposCount, items: reposList } = await fetchJson(repoUrl);
+        updateNavCount(totalUsersCount, userNavCountNode);
+        updateNavCount(totalReposCount, repoNavCountNode);
 
-    if (currentNavView === NAV_USERS) {
-        updateTitleCount(totalUsersCount, 'users', totalCountNode);
-        const userNodeList = getUserList(usersList);
-        searchResultsNode.innerHTML = '';
-        searchResultsNode.append(...userNodeList);
+        if (currentNavView === NAV_USERS) {
+            updateTitleCount(totalUsersCount, 'users', totalCountNode);
+            const userNodeList = getUserList(usersList);
+            searchResultsNode.innerHTML = '';
+            searchResultsNode.append(...userNodeList);
+        }
+
+        if (currentNavView === NAV_REPOSITORIES) {
+            updateTitleCount(totalReposCount, 'repositories', totalCountNode);
+            const repoNodeList = getRepoList(reposList);
+            searchResultsNode.innerHTML = '';
+            searchResultsNode.append(...repoNodeList);
+        }
     }
-
-    if (currentNavView === NAV_REPOSITORIES) {
-        updateTitleCount(totalReposCount, 'repositories', totalCountNode);
-        const repoNodeList = getRepoList(reposList);
-        searchResultsNode.innerHTML = '';
-        searchResultsNode.append(...repoNodeList);
+    catch (e) {
+        console.log(e);
     }
 };
 

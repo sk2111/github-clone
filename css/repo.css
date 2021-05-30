@@ -4,5 +4,54 @@
   margin-right: auto;
   margin-left: auto;
   max-width: 1000px;
-  visibility: hidden;
+}
+.repo-details {
+  padding-top: 30px;
+  width: 100%;
+}
+.repo-count {
+  border-bottom: 1px solid var(--color-border-primary);
+  font-size: 1.8rem;
+  padding: 10px 0px 20px 0px;
+}
+.repo-item {
+  border-bottom: 1px solid var(--color-border-primary);
+  padding: 20px 0;
+  position: relative;
+}
+.repo-name {
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+.repo-detail {
+  font-size: 1.4rem;
+  padding-bottom: 15px;
+}
+.repo-con {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.repo-stars {
+  padding-left: 5px;
+  padding-right: 30px;
+  font-size: 1.3rem;
+}
+.icon-star {
+  font-size: 1.4rem;
+  position: relative;
+  bottom: 1px;
+}
+.icon-book {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 25px;
+  left: -16px;
+  opacity: 0.85;
+}
+.repo-date {
+  padding-left: 20px;
+  font-size: 1.3rem;
 }
