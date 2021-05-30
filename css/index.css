@@ -92,10 +92,12 @@
 }
 .user-item {
   align-items: center;
-  border-bottom: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-primary);
+  border-radius: 5px;
   display: flex;
   flex-direction: row;
-  padding: 20px 0;
+  padding: 20px 30px;
+  margin-top: 10px;
 }
 .user-avatar {
   border-radius: 50%;
