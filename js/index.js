@@ -97,6 +97,6 @@ window.handlePagination = (e) => {
 
     if (usersPagination < 1) return usersPagination = 1;
     if (repoPagination < 1) return repoPagination = 1;
-
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     handleContentView(currentNavView, searchTerm);
 };
