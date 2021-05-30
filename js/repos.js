@@ -15,7 +15,7 @@ const GITHUB_REPOS = `https://api.github.com/users/${userName}/repos`;
 
 (async function () {
     try {
-        if (!userName) return window.location = '/index.html';;
+        if (!userName) return window.location = '/index.html';
         const repoList = await fetchJson(GITHUB_REPOS);
         const [{ owner: { avatar_url: avatarUrl, login: loginName } }] = repoList;
         const imageNode = createDOMNode('img', null, [{ name: 'class', value: 'user-avatar' }, { name: 'src', value: avatarUrl }]);
