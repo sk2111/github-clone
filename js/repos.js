@@ -23,7 +23,7 @@ const GITHUB_REPOS = `https://api.github.com/users/${userName}/repos`;
         //show user details
         userDetailsNode.append(imageNode, nameNode);
         //show repo details
-        const repoTotalCount = `${repoList.length} repositories found`
+        const repoTotalCount = `${repoList.length} user repositories found`
         const repoCountNode = createDOMNode('h4', repoTotalCount, [{ name: 'class', value: 'repo-count' }]);
         const repoListNodes = getRepoList(repoList);
         repoDetailsNode.append(repoCountNode, ...repoListNodes);
