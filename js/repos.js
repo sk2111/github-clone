@@ -3,6 +3,7 @@ import { fetchJson, getQueryParams, getRepoList, createDOMNode } from './utiliti
 //DOM nodes
 const userDetailsNode = document.getElementById('user-details');
 const repoDetailsNode = document.getElementById('repo-details');
+const errorNode = document.getElementById('error-details');
 //location 
 const searchQuery = window.location.search;
 const userName = getQueryParams(searchQuery, 'username=');
@@ -24,6 +25,7 @@ const GITHUB_REPOS = `https://api.github.com/users/${userName}/repos`;
         repoDetailsNode.append(repoCountNode, ...getRepoList(repoList));
     }
     catch (e) {
+        errorNode.innerText = 'No Repositories found';
         console.log(e);
     }
 })();
