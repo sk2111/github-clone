@@ -15,7 +15,7 @@ export const fetchJson = async (url) => {
     try {
         const response = await fetch(url, {
             headers: {
-                'authorization': 'token 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'
+                'authorization': 'token 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'
             }
         });
         const data = await response.json();
